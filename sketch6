@@ -1,0 +1,26 @@
+size(500,500);      
+background(0);
+
+int x=10;
+int y=10;
+while (y<=250){
+  while (x<=width-y){
+  ellipse(x,y,15,15);
+  fill(255);
+  x=x+15;
+  }
+  y=y+15;
+  x=y;
+}
+   
+int a=490;
+int b=490;
+while (b>=250){
+  while (a>=width-b){
+  ellipse(a,b,15,15);
+  fill(255);
+  a=a-15;
+  }
+  b=b-15;
+  a=b;
+}
