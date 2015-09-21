@@ -1,0 +1,58 @@
+class Ball {
+  float x, y;
+  float vx, vy;
+  float radius;
+  float doggy;//the color
+
+  Ball() {
+    x = random(width);
+    y = random(height);
+    radius = 10;
+    vx = random(4);
+    vy = random(3);
+    doggy = random(77);
+  }
+  
+  void draw() {
+    colorMode(HSB,100);
+    fill(doggy,100,100);
+    ellipse(x, y, radius*2, radius*2);
+  }
+  void kitty(){//mouse click
+  if (mousePressed==true){
+  x=mouseX;
+  y=mouseY;
+  }
+  }
+  void move() {
+    x = x + vx;
+    y = y + vy;
+    if (x < radius || x > width-radius) {
+      vx = -vx;
+    }
+    if (y < radius || y > height-radius) {
+      vy = -vy;
+    }
+  }
+}
+
+Ball b;
+Ball froggy;
+
+void setup() {
+  size(500, 500);
+
+  b = new Ball();
+  froggy = new Ball();
+}
+
+void draw() {
+  background(2,0,100);
+
+  b.draw();
+  b.move();
+  b.kitty();
+  froggy.draw();
+  froggy.move();
+  froggy.kitty();
+}
